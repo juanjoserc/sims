@@ -1,0 +1,35 @@
+<h1>Ticket #<%= @ticket.id %> details </h1>
+<strong>Service </strong><br>
+<%= @ticket.service.name %><br>
+<strong>Subject </strong><br>
+<%= @ticket.subject %><br>
+<strong>Description</strong><br>
+<%= @ticket.description %><br>
+<strong>Assigned Tech</strong><br>
+<%= user_name(@ticket.tech_id) %><br>
+<strong>Estimated resolution time</strong><br>
+<%= @ticket.estimated_resolution_time %><br>
+<strong>Status</strong><br>
+<%= @ticket.ticket_status.name %><br>
+<strong>Created at</strong><br>
+<%= @ticket.created_at %><br>
+<strong>Last update</strong><br>
+<%= @ticket.updated_at %><br>
+<strong>Attachment</strong><br>
+<%= link_to "Link to attachment", @ticket.attachment.url.to_s %><br>
+<h2>Notes</h2>
+<table class="table table-striped">
+	<thead>
+      <tr>
+        <th>Note</th>
+        <th>Created by</th>
+        <th>Date</th>
+      </tr>
+  </thead>
+    <tbody>
+			<%= render @ticket.notes %>
+    </tbody>
+</table>
+<h2>New note:</h2>
+<%= render 'notes/form' %>
+<%= link_to "Go to Tickets", tickets_path %> | <%= link_to "Edit", edit_ticket_path(@ticket) %>

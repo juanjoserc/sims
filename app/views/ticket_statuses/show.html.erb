@@ -1,0 +1,4 @@
+<h1>Ticket Status #<%= @ticket_status.id %> details </h1>
+<strong>Name </strong><br>
+<%= @ticket_status.name %><br>
+<%= link_to "Go to Ticket Statuses", ticket_statuses_path %> | <%= link_to "Edit", edit_ticket_status_path(@ticket_status) %>
