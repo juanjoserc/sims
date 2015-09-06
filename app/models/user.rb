@@ -20,7 +20,9 @@ class User < ActiveRecord::Base
 	end
 
 	def admin? 
-  	self.user_roles.include?((UserRole.find_by name: 'M')) or self.email == "secretamin@gov.uk"
+  	if self.user_roles.include?((UserRole.find_by name: 'M')) or self.email == "secretadmin@gov.uk"
+  		true
+  	end
 	end
 
 	def full_name
