@@ -30,9 +30,11 @@
 		<%= f.label :password_confirmation %>
 		<%= f.password_field :password_confirmation, class: "form-control" %>
 	</div>
+	<% if current_user && current_user.admin? %>
 	<div class="form-group">
 			<%= f.collection_check_boxes :user_role_ids, UserRole.all, :id, :name %>
 	</div>
+	<% end %>
 	<div class="form-group">
 		<%= f.submit "Submit", class: "btn btn-info" %>
 	</div>
