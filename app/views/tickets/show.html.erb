@@ -6,7 +6,7 @@
 <strong>Description</strong><br>
 <%= @ticket.description %><br>
 <strong>Assigned Tech</strong><br>
-<%= user_name(@ticket.tech_id) %><br>
+<%= @ticket.tech_id ? user_name(@ticket.tech_id) : "Pending assignment" %><br>
 <strong>Estimated resolution time</strong><br>
 <%= @ticket.estimated_resolution_time %><br>
 <strong>Status</strong><br>
